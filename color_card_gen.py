@@ -1,3 +1,5 @@
+import os
+
 def load_svg(file_path):
     """Load an SVG file and return its content as a string."""
     with open(file_path, 'r') as f:
@@ -6,6 +8,12 @@ def load_svg(file_path):
 
 def save_svg(file_path, svg):
     """Save an SVG string to a file."""
+    color_name = file_path.split('_')[0]
+    folder_path = os.path.join("extracted", color_name)
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    
+    file_path = os.path.join(folder_path, file_path)
     with open(file_path, 'w') as f:
         f.write(svg)
 
