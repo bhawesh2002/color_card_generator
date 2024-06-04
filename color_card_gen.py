@@ -36,11 +36,13 @@ def modify_color(svg,color_codes):
     """Modify the color of an SVG file based on the provided color codes."""
     for color_name, shades in color_codes.items():
         for shade, code in shades.items():
-            modified_svg = svg.replace(f'fill="#000000"',f'fill="{code}"')
+            modified_svg = svg
+            modified_svg = modified_svg.replace(f'shade',f'{shade}')
+            modified_svg = modified_svg.replace(f'hex_code',f'{code}')
             save_svg(f'{color_name}_{shade}.svg', modified_svg)
 
 print('Loading SVG file...')
-svg = load_svg('color_card.svg')
+svg = load_svg('card_template_1.svg')
 print('Modifying colors...')
 modify_color(svg,color_codes)
 print('Done!')
