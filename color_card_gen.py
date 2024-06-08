@@ -1,6 +1,6 @@
 import os
 
-def load_svg(file_path):
+def load_template(file_path):
     """Load an SVG file and return its content as a string."""
     with open(file_path, 'r') as f:
         return f.read()
@@ -42,7 +42,7 @@ def modify_color(svg,color_codes):
             save_svg(f'{color_name}_{shade}.svg', modified_svg)
 
 print('Loading SVG file...')
-svg = load_svg('card_template_1.svg')
+svg = load_template('card_template_1.svg')
 print('Modifying colors...')
 modify_color(svg,color_codes)
 print('Done!')
