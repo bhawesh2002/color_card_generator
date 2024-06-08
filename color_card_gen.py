@@ -42,8 +42,12 @@ def modify_color(svg,color_codes):
             save_svg(f'{color_name}_{shade}.svg', modified_svg) # Save the modified SVG to a file
 
 
-print('Loading SVG file...')
-svg = load_template('card_template_1.svg') # Load the SVG file
-print('Creating Color Cards...')
-modify_color(svg,color_codes) # Modify the color of the SVG file
-print('Done!') # Print a message to indicate that the process is complete
+def main():
+    print('Loading SVG file...')
+    svg = load_template('card_template_1.svg') # Load the SVG file
+    print('Creating Color Cards...')
+    modify_color(svg,color_codes) # Modify the color of the SVG file
+    print('Done!') # Print a message to indicate that the process is complete 
+
+if __name__ == '__main__':
+    main()
