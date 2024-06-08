@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" rx="4" width="48" height="78" fill="#FFFFFF"/>
+        <rect x="4" y="4" rx="4" width="40" height="40" fill="hex_code"/>
+        <text x="4" y="60" fill="#454545" font-size="8">shade</text>
+        <text x="4" y="72" fill="#454545" font-size="8">hex_code</text>
+</svg>
