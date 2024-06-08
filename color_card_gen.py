@@ -43,6 +43,6 @@ def modify_color(svg,color_codes):
 
 print('Loading SVG file...')
 svg = load_template('card_template_1.svg')
-print('Modifying colors...')
+print('Creating Color Cards...')
 modify_color(svg,color_codes)
 print('Done!')
