@@ -10,7 +10,7 @@ def save_svg(file_path, svg):
     """Save an SVG string to a file."""
     color_name = file_path.split('_')[0]
     folder_path = os.path.join("extracted", color_name)
-    if not os.path.exists(folder_path):
+    if not os.path.exists(folder_path): # Create the folder if it doesn't exist
         os.makedirs(folder_path)
     
     file_path = os.path.join(folder_path, file_path)
@@ -32,17 +32,18 @@ color_codes = {'malachite': {
     },
 }
 
-def modify_color(svg,color_codes):
+def modify_color(svg,color_codes): 
     """Modify the color of an SVG file based on the provided color codes."""
-    for color_name, shades in color_codes.items():
-        for shade, code in shades.items():
-            modified_svg = svg
-            modified_svg = modified_svg.replace(f'shade',f'{shade}')
-            modified_svg = modified_svg.replace(f'hex_code',f'{code}')
-            save_svg(f'{color_name}_{shade}.svg', modified_svg)
+    for color_name, shades in color_codes.items(): # Loop through each color
+        for shade, code in shades.items(): # Loop through each shade of the color
+            modified_svg = svg # Make a copy of the original SVG 
+            modified_svg = modified_svg.replace(f'shade',f'{shade}') # Replace the placeholder with the shade
+            modified_svg = modified_svg.replace(f'hex_code',f'{code}') # Replace the placeholder with the color code
+            save_svg(f'{color_name}_{shade}.svg', modified_svg) # Save the modified SVG to a file
+
 
 print('Loading SVG file...')
-svg = load_template('card_template_1.svg')
+svg = load_template('card_template_1.svg') # Load the SVG file
 print('Creating Color Cards...')
-modify_color(svg,color_codes)
-print('Done!')
+modify_color(svg,color_codes) # Modify the color of the SVG file
+print('Done!') # Print a message to indicate that the process is complete
