@@ -1,8 +1,14 @@
 import os
 
-def load_template(file_path):
+def load_template():
     """Load an SVG file and return its content as a string."""
-    with open(file_path, 'r') as f:
+    while True:
+        template_index = int(input("Choose a Tempelate(1-3): "))
+        if template_index > 0 and template_index <= 3:
+            break
+    templates = ["card_template_1.svg","card_template_2.svg","card_template_3.svg"]
+    template_path = templates[template_index - 1]
+    with open(template_path, 'r') as f:
         return f.read()
 
 
@@ -44,7 +50,7 @@ def modify_color(svg,color_codes):
 
 def main():
     print('Loading SVG file...')
-    svg = load_template('card_template_1.svg') # Load the SVG file
+    svg = load_template() # Load the SVG file
     print('Creating Color Cards...')
     modify_color(svg,color_codes) # Modify the color of the SVG file
     print('Done!') # Print a message to indicate that the process is complete 
